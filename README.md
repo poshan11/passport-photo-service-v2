@@ -3,7 +3,7 @@
 <!-- TODO: drop a hero banner at docs/hero-banner.png (1200x400 ish) and an App Store screenshot strip at docs/demo.png. Until then this header reads as text. -->
 
 <p align="center">
-  <em>I built a real, paying iOS app solo — while holding a full-time SDE-2 job at OCI.</em><br>
+  <em>I built a real, paying iOS product solo — ML pipeline, payments, mobile, infra.</em><br>
   This repo is the production backend. <strong>Solo-engineered. Live in the App Store. AI-pair-programmed end-to-end.</strong>
 </p>
 
@@ -44,7 +44,7 @@ It runs in production, serves real paying customers, and was built solo:
 
 ## Why This Repo Exists
 
-I'm an SDE-2 at Oracle Cloud Infrastructure (~5 years on the Object Storage Platform — exabyte-scale, 2,000+ servers, 25+ regions). I shipped this product on the side to prove to myself I could own a system end-to-end — ML, mobile, payments, infra, support, the whole lifecycle — outside the safety net of a hyperscaler eng team.
+I shipped this product solo to prove to myself I could own a system end-to-end — ML, mobile, payments, infra, support, the whole lifecycle.
 
 I did. It's live. It pays. This repo is the receipt.
 
@@ -212,8 +212,6 @@ The MODNet model weights are licensed separately by their authors and are **not 
 I'm **Poshan Bastola** — distributed-systems engineer, ~5 years on the Object Storage Platform at **Oracle Cloud Infrastructure** (exabyte-scale, 2,000+ servers, 25+ regions). I built the data pipeline (object storage → data lake → analytics warehouse), the Prometheus/Grafana observability stack, the per-tenant attribution model, and the Python forecasting model that became the canonical monthly input for global hardware procurement — driving fleet utilization 65% → 80% and reducing capex by millions/yr.
 
 This repo is one of the things I've been building since.
-
-I'm currently looking for senior IC roles where I can keep working at this intersection — production systems at scale, ML in the loop, and aggressive use of LLM tooling to compound output. If that's a match, I'd love to talk.
 
 ## Let's Connect
 
