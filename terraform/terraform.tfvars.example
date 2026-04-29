@@ -1,0 +1,83 @@
+project_id       = "your-gcp-project-id"
+region           = "us-central1"
+service_name     = "photo-processing-service"
+
+bucket_name      = "your-unique-photo-bucket-name"
+
+db_instance_name = "photo-processing-db"
+db_zone          = "us-central1-c"
+database_name    = "passport_photo_db"
+db_user          = "appuser"
+db_password      = "change-me"
+# Preferred final mode after creating a DB password secret:
+# db_password = ""
+# db_password_secret_id = "db-password"
+sql_edition      = "ENTERPRISE"
+
+# Temporary single source for app secrets (recommended pre-step):
+# Put sensitive config values here first so they stop living in config.py.
+# Terraform will create/update Secret Manager secrets and inject them into Cloud Run.
+# Important: these values still end up in Terraform state. Later, migrate to manual Secret Manager values
+# and let Terraform bind by secret name only.
+secret_env_vars = {
+  # Stripe
+  STRIPE_SECRECT_KEY = "change-me"
+  STRIPE_WEBHOOK     = "change-me"
+
+  # Email / Microsoft Graph (Azure)
+  AZURE_TENANT_ID     = "change-me"
+  AZURE_CLIENT_ID     = "change-me"
+  AZURE_CLIENT_SECRET = "change-me"
+  EMAIL_PASSWORD      = "change-me"
+
+  # Notification / operations emails (not secrets, but useful to centralize)
+  ADMIN_ORDER_CONFIRMATION_EMAIL   = "orders@yourdomain.com"
+  CONFIRMATION_GMAIL_GOOGLE_PHOTOS = "your-gmail@example.com"
+
+  # PayPal
+  SANDBOX_PAYPAL_CLIENT_ID     = "change-me"
+  SANDBOX_PAYPAL_CLIENT_SECRET = "change-me"
+  LIVE_PAYPAL_CLIENT_ID        = "change-me"
+  LIVE_PAYPAL_CLIENT_SECRET    = "change-me"
+
+  # Walgreens / integrations
+  WALGREENS_API_KEY = "change-me"
+
+  # Other app integrations
+  BROWSER_USE_API_KEY = "change-me"
+}
+
+# Preferred final mode after secrets are created (bind by secret name only, no raw values in tfvars):
+# secret_env_vars = {}
+# secret_env_secret_ids = {
+#   STRIPE_SECRECT_KEY = "stripe-secrect-key"
+#   STRIPE_WEBHOOK     = "stripe-webhook"
+#   AZURE_TENANT_ID    = "azure-tenant-id"
+#   AZURE_CLIENT_ID    = "azure-client-id"
+#   AZURE_CLIENT_SECRET = "azure-client-secret"
+# }
+
+# Option A: use a prebuilt image
+# container_image = "us-central1-docker.pkg.dev/your-gcp-project-id/photo-processing-service-images/photo-processing-service:latest"
+
+# Option B: build from this repo during terraform apply (requires gcloud CLI authenticated)
+build_container_image = true
+image_tag             = "latest"
+source_build_nonce    = "initial"
+
+# Import your local SQL dump during terraform apply (requires gcloud CLI authenticated)
+import_sql_dump     = false
+sql_dump_local_path = "/absolute/path/to/your_dump.sql"
+
+allow_unauthenticated = true
+
+# Optional promo mode (frontend reads flags from /getCost)
+# promo_mode_enabled = true
+# promo_digital_only = true
+# promo_banner_text  = "Limited-time free digital passport photo"
+
+# Optional: map a stable custom domain to Cloud Run (recommended for frontend stability)
+# Important: verify domain ownership in Google Search Console first, then enable mapping.
+# Use a subdomain so your main site stays untouched, e.g. api.yourdomain.com
+# enable_custom_domain_mapping = true
+# custom_domain_name           = "api.yourdomain.com"

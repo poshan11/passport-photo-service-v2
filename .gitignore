@@ -1,0 +1,68 @@
+# ---- Python ----
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# ---- Virtual envs ----
+.venv/
+venv/
+env/
+
+# ---- Secrets / env / credentials ----
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*-key.json
+client_secret*.json
+service-account*.json
+service_account*.json
+
+# ---- Terraform ----
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+*.tfvars.json
+!*.tfvars.example
+crash.log
+crash.*.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# ---- Docker / build artifacts ----
+*.log
+build/
+dist/
+
+# ---- IDE / OS ----
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# ---- Node (only if you add JS tooling) ----
+node_modules/
+
+# ---- Local dev / model weights ----
+MODNet/ckpt/*.ckpt
+MODNet/pretrained/
+*.onnx
+*.h5
+*.pkl
+
+# ---- Test artifacts / temp output ----
+/tmp/
+debug_image_*.jpg
+processed_*.jpg
+composite_*.jpg

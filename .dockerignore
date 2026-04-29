@@ -1,0 +1,42 @@
+# Ignore version control directories
+.git
+.gitignore
+
+# Python cache and compiled files
+__pycache__
+*.py[cod]
+*$py.class
+
+# Virtual environments and build artifacts
+venv/
+env/
+ENV/
+*.egg-info
+build/
+dist/
+
+# Logs and temporary files
+*.log
+tmp/
+*.tmp
+
+# OS-specific files
+.DS_Store
+
+# Ignore local configuration files (if not needed in container)
+*.env
+
+# Local migration/export artifacts (can be very large)
+migration_assets/
+
+# Terraform local state/config artifacts
+terraform/.terraform/
+terraform/*.tfstate
+terraform/*.tfstate.*
+terraform/*.tfvars
+terraform/migration.auto.tfvars
+
+
+# Ignore any tests or docs directories if not required for production
+tests/
+docs/
