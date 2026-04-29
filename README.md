@@ -1,6 +1,10 @@
-# Passport Photo Service
+<p align="center">
+  <a href="https://apps.apple.com/us/app/passport-photo-id-photo/id6748840005">
+    <img src="docs/app-icon.png" alt="Passport Photo, ID Photo — App Store" width="120">
+  </a>
+</p>
 
-<!-- TODO: drop a hero banner at docs/hero-banner.png (1200x400 ish) and an App Store screenshot strip at docs/demo.png. Until then this header reads as text. -->
+<h1 align="center">Passport Photo Service</h1>
 
 <p align="center">
   <em>I built a real, paying iOS product solo — ML pipeline, payments, mobile, infra.</em><br>
@@ -41,6 +45,32 @@ It runs in production, serves real paying customers, and was built solo:
 - **Infrastructure as code** — Terraform-managed GCP (Cloud Run, Cloud SQL, Cloud Storage, Secret Manager, Artifact Registry, custom-domain mapping)
 
 > **This is not a tutorial clone.** Real users. Real Stripe charges. Real Cloud SQL. Real Cloud Run revisions in `us-central1`. The endpoints in this repo are the endpoints that handle live orders today.
+
+## The Mobile Client
+
+The iOS app — built with React Native + Expo — sits on top of these endpoints. Country selector → camera/upload → server-side processing → preview → checkout (Stripe / PayPal / Apple IAP) → digital download or Walgreens print pickup.
+
+<p align="center">
+  <img src="docs/iphone-1.png" alt="Country selector" width="170">
+  <img src="docs/iphone-2.png" alt="Document type" width="170">
+  <img src="docs/iphone-3.png" alt="Photo guidance" width="170">
+  <img src="docs/iphone-4.png" alt="Result preview" width="170">
+  <img src="docs/iphone-5.png" alt="Checkout" width="170">
+</p>
+
+<details>
+<summary><strong>iPad screenshots</strong></summary>
+
+<p align="center">
+  <img src="docs/ipad-1.png" alt="iPad — country selector" width="200">
+  <img src="docs/ipad-2.png" alt="iPad — document type" width="200">
+  <img src="docs/ipad-3.png" alt="iPad — photo guidance" width="200">
+  <img src="docs/ipad-4.png" alt="iPad — result preview" width="200">
+  <img src="docs/ipad-5.png" alt="iPad — checkout" width="200">
+</p>
+</details>
+
+The mobile client lives in a separate repo (private — it's the active commercial asset). This backend is open-sourced as the portfolio piece.
 
 ## Why This Repo Exists
 
